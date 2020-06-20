@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- scprit de captura de configurações gravadas em localstorage -->
+	<script src="js/config.js"></script>
+
+
+	<title>Galatics</title>
+</head>
+<body onload="configurar()">
+
+
+	<!-- -- -- --/ CONTAINER INICIAL \-- -- -- -->
+	<section id="container-inicial">
+
+		<!-- --/ TELA INICIAL \-- -->
+		<div id="tela-inicial">
+			<!--/ PARTE APRESENTAÇÃO \-->
+			<div id="tela-inicial-aux">
+				<div id="back-color" class="camada"></div>
+				<div class="back-estrelas camada"></div>
+				<img src="img/planeta.png" class="camada">
+				<img id="logo" src="img/logo.png" class="camada">
+				<div id="cont-nave" class="camada">
+					<div id="nave-inicial"></div>
+				</div>
+			</div>
+
+			<!--/ PARTE BOTÕES \-->
+			<div id="btns-ini" class="botoes-menu">
+				<button id="btn-intrucoes" onclick="abrirJanela('janela-intrucoes')">
+					<i class="fas fa-question"></i>
+				</button>
+				<button id="btn-play" onclick="botaoIniciar()">
+					<i class="fas fa-play"></i>
+				</button>
+				<button id="btn-config" onclick="abrirJanela('janela-configuracoes')">
+					<i class="fas fa-cog"></i>
+				</button>
+			</div>
+		</div>
+
+		<!-- --/ PARTE JANELAS \-- -->
+		<div id="janelas-gerais" class="camada">
+
+			<!--/ JANELA DE INTRUÇÕE \-->
+			<div id="janela-intrucoes" class="janelas d-none">
+				<button class="fechar-gerais" onclick="fecharJanelas('janela-intrucoes')">
+					<i class="fas fa-times"></i>
+				</button>
+					
+				<h1>História</h1>
+				<p>
+					Os Dudiâinos fracassaram ao invadir a Terra a fim de toma-la. Agora querem destruir nosso planeta. Eles disseram que começariam o ataque as exatas 12:00 no horário da Terra.
+				</p>
+				<p>
+					Sua missao é impedir que eles façam isso. Destrua as bombas antes que elas destruam a Terra. E não desista, você possui uma maquina do tempo de energia infinita em sua nave, use-a o quanto quiser. <strong>CONTAMOS COM VOCÊ.</strong>
+				</p>
+
+				<h1>Controles da Nave</h1>
+				<div class="controles">
+					<img src="img/setas.png">
+					<p><strong>SETAS</strong> MOVEM A NAVE</p>
+				</div>
+				<div class="controles">
+					<img src="img/botao-x.png">
+					<p>TECLA <strong>X</strong> DISPARA</p>
+				</div>
+			</div>
+	
+			<!--/ JANELA DE CONFIGURAÇÕES \-->
+			<div id="janela-configuracoes" class="janelas d-none">
+				<button class="fechar-gerais" onclick="fecharJanelas('janela-configuracoes')">
+					<i class="fas fa-times"></i>
+				</button>
+
+				<h1>Configurações</h1>
+				<div>
+					<button id="config-ani" class="btn-config" onclick="configAnimacao()">
+						<i id="o-ani" class="fas fa-toggle-on"></i>
+					</button>
+
+					<p>Animação das Estrelas</p>
+				</div>
+
+				<div>
+					<button id="config-efsn" class="btn-config" onclick="configEfeitos()">
+						<i id="o-efeitos" class="fas fa-toggle-on"></i>
+					</button>
+					<p>Efeitos Sonoros</p>
+				</div>
+
+				<div>
+					<button id="config-mus" class="btn-config" onclick="configMusc()">
+						<i id="o-musicas" class="fas fa-toggle-on"></i>
+					</button>
+					<p>Músicas</p>
+				</div>
+
+
+				<div id="volums">
+					<p class="vol-box"> Volumes </p>
+					<div class="vol-box">
+						<div><input id="vol-efsn" type="range" min="0" max="30" onfocus="capturarVolumeEfsn()" value="3"></div>
+						<p>Efeitos Sonoros</p>
+					</div>
+					<div class="vol-box">
+						<div><input id="vol-mus" type="range" min="0" max="30" onfocus="capturarVolumeMus()" value="6"></div>
+						<p>Músicas</p>
+					</div>
+				</div>
+
+				<div id="permissao">
+					<p>Se quiser que sua configarções fiquem salvas clique em permitir.</p>
+					<button onclick="permitirConfig()">Permitir</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- -- -- --( CONTAINER JOGO )-- -- -- -->
+	<section id="container-jogo" class="d-none">
+	
+		<!-- --( PARTE JOGO )-- -->
+		<div>
+			<div id="tela-jogo">
+
+				<!--( BARRAS )-->
+				<div id="barras">
+					<div id="barra-vida"></div>
+					<div id="barra-bomba"></div>
+				</div>
+
+				<!--( CAMADAS DE INTERAÇÃO )-->
+				<div id="back-jogo" class="back-estrelas camada"></div>
+				<div id="explosao-tiro" class="camada"></div>
+				<div id="explosao-bomba" class="camada"></div>
+				<div id="bomba" class="camada"></div>
+				<div id="tiro" class="camada"></div>
+
+				<div id="jogo" class="camada">
+					<div id="nave">
+					</div>
+				</div>
+
+				<!--( TELA DE RESULTADO )-->
+				<div id="tela-reslt" class="d-none">
+					<div id="planeta-reslt"></div>
+					<div id="text-reslt"></div>
+					<div id="brilho_derr"></div>
+				</div>
+
+				<!--( CAMADA CONTAGEM )-->
+				<div id="contagem" class="camada">1</div>
+				
+				<!--( TELA CRONOMETRO REINICIAR )-->
+				<div id="cronometro" class="d-none">
+					<div id="back" class="camada"></div>
+					<div id="pt-min" class="camada"></div>
+					<div id="pt-hr" class="camada"></div>
+					<div id="eixo" class="camada"></div>
+				</div>
+			</div>
+
+			<!--( BOTÕES TELA JOGO )-->
+			<div id="btns-jogo" class="botoes-menu">
+				<button id="btn-reset" onclick="reiniciarJogo()" disabled="disabled">
+					<i class="fas fa-redo-alt"></i>
+				</button>
+				<button id="btn-home" onclick="window.location.reload()">
+					<i class="fas fa-home"></i>
+				</button>
+			</div>
+		</div>
+	</section>
+	
+	<!-- -- -- --|> SECTION AUDIOS <|-- -- -- -->
+	<section id="audios">
+		<div><audio id="audio-jogo" src="audio/hit-n-smash.mp3" loop></div>
+		<div><audio id="audio-vit" src="audio/city-sunshine.mp3" loop></div>
+		<div><audio id="audio-derr" src="audio/dawn-of-the-apocalypse.mp3" loop></div>
+		<div><audio id="audio-crono" src="audio/time-machine.mp3"></div>
+		
+		<div id="audios-tiro"></div>
+		<div id="audios-expl-tiro1"></div>
+		<div id="audios-expl-tiro2"></div>
+		<div id="audios-expl-tiro3"></div>
+		<div id="audios-expl-bomba1"></div>
+		<div id="audios-expl-bomba2"></div>
+		<div id="audios-expl-bomba3"></div>
+	</section>
+	
+	<!-- script com toda interação -->
+	<script src="js/jscript.js"></script>
+</body>
+</html>
