@@ -1,2 +1,2 @@
 # Galatics
- Jogo Nave Espacial - Aprendendo JavaScript
+ Jogo de Nave Espacial - Aprendendo JavaScript
