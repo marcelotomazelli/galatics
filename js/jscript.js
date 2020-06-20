@@ -588,7 +588,10 @@ function controleTiro() {
 
 // usada dentro de iniciarJogo()
 function criarBomba() {
-	if(jogando && bmb_totais > 0) {
+	let bombas_na_tela = document.getElementsByClassName('bomba')
+	bombas_na_tela = bombas_na_tela.length
+	
+	if(jogando && bmb_totais > 0 && bombas_na_tela < 5) {
 		let x = Math.random()*440
 		let y = -60
 
