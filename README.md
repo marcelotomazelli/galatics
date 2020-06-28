@@ -1,2 +1,2 @@
 # Galatics
- Jogo de Nave Espacial - Aprendendo JavaScript
+ É um jogo de nave espacial feito para treino de JavaScript.
