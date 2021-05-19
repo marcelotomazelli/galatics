@@ -1,4 +1,9 @@
-# :rocket: Galatics 
+<h1>
+    
+<img class="banner" src="https://github.com/marcelotomazelli/galatics/blob/master/img/planeta-vit.png?raw=true" alt="Banner Galatics">
+
+</h1>
+
 É um jogo de nave espacial feito para prática de JavaScript.
 
 ## :notebook_with_decorative_cover: Aprendizado
