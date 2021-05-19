@@ -1,6 +1,6 @@
 <h1>
     
-<img class="banner" src="https://github.com/marcelotomazelli/galatics/blob/master/img/planeta-vit.png?raw=true" alt="Banner Galatics">
+<img class="banner" src="https://github.com/marcelotomazelli/galatics/blob/master/img/banner.png?raw=true" alt="Banner Galatics">
 
 </h1>
 
