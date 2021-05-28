@@ -1,8 +1,4 @@
-<h1>
-    
-<img class="banner" src="https://github.com/marcelotomazelli/galatics/blob/master/img/planeta-vit.png?raw=true" alt="Banner Galatics">
-
-</h1>
+<img src="https://github.com/marcelotomazelli/galatics/blob/master/img/banner.png?raw=true" alt="Banner Galatics">
 
 É um jogo de nave espacial feito para prática de JavaScript.
 
